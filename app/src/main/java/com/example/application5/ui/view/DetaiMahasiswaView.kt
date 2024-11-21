@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.application5.model.DataMahasiswa
@@ -26,7 +27,7 @@ fun DetailMahasiswaView(
         Pair("NoHP", uiStateMahasiswa.nohp)
     )
 
-    Column(){
+    Column(horizontalAlignment = Alignment.CenterHorizontally){
         listDataMhs.forEach{ items ->
             CardSection(
                 judulParam = items.first,

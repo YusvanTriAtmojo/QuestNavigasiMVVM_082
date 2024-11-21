@@ -1,10 +1,12 @@
 package com.example.application5
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -24,12 +26,12 @@ enum class Halaman{
 @Composable
 fun PengelolaHalaman(
     modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController(),
     viewModel: MahasiswaViewModel = viewModel(),
     navHost: NavHostController = rememberNavController()
 ){
     val stateUI by viewModel.uiState.collectAsState()
-    NavHost(navController = navController, startDestination = Halaman.Formulir.name) {
+    NavHost(modifier = modifier.padding(8.dp),
+        navController = navHost, startDestination = Halaman.Formulir.name) {
         composable(route = Halaman.Formulir.name) {
             val konteks = LocalContext.current
             FormMahasiswaView(
