@@ -54,6 +54,14 @@ fun FormMahasiswaView(
             modifier = Modifier.fillMaxWidth().padding(5.dp)
         )
 
+        OutlinedTextField(
+            value = nim,
+            onValueChange = {nim = it},
+            placeholder = { Text("Massukkan NIM")},
+            label = {Text("NIM")},
+            modifier = Modifier.fillMaxWidth().padding(5.dp)
+        )
+
         Row {
             listJK.forEach { item ->
                 Row (verticalAlignment = Alignment.CenterVertically){
