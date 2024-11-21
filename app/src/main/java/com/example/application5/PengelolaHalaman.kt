@@ -35,6 +35,10 @@ fun PengelolaHalaman(
                 listJK =  DataJenisKelamin.listJK.map {
                     isi -> konteks.resources.getString(isi)
                 },
+                onSubmitClicked = {
+                    viewModel.saveDataMahasiswa(it)
+                    navHost.navigate(Halaman.Detail.name)
+                }
             )
         }
     }
