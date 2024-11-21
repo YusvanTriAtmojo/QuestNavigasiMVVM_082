@@ -28,7 +28,11 @@ fun PengelolaHalaman(
     NavHost(navController = navController, startDestination = Halaman.Formulir.name) {
         composable(route = Halaman.Formulir.name) {
             val konteks = LocalContext.current
-            FormMahasiswaView()
+            FormMahasiswaView(
+                listJK =  DataJenisKelamin.listJK.map {
+                    isi -> konteks.resources.getString(isi)
+                },
+            )
         }
     }
 
