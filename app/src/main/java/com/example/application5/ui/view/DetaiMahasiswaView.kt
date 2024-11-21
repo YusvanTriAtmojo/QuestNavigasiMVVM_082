@@ -21,6 +21,9 @@ fun DetailMahasiswaView(
         Pair("Nama", uiStateMahasiswa.nama),
         Pair("Gender", uiStateMahasiswa.gender),
         Pair("Alamat", uiStateMahasiswa.alamat),
+        Pair("NIM", uiStateMahasiswa.nim),
+        Pair("Email", uiStateMahasiswa.email),
+        Pair("NoHP", uiStateMahasiswa.nohp)
     )
 
     Column(){
