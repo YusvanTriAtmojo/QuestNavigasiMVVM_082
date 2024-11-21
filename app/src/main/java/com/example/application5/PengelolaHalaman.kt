@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.application5.model.DataJenisKelamin
+import com.example.application5.ui.view.DetailMahasiswaView
 import com.example.application5.ui.view.FormMahasiswaView
 import com.example.application5.ui.viewmodel.MahasiswaViewModel
 
@@ -38,6 +39,14 @@ fun PengelolaHalaman(
                 onSubmitClicked = {
                     viewModel.saveDataMahasiswa(it)
                     navHost.navigate(Halaman.Detail.name)
+                }
+            )
+        }
+        composable(route = Halaman.Detail.name){
+            DetailMahasiswaView(
+                uiStateMahasiswa = stateUI,
+                onClickButton = {
+                    navHost.popBackStack()
                 }
             )
         }
