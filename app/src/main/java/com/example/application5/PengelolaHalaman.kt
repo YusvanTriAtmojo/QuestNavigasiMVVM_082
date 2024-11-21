@@ -1,6 +1,7 @@
 package com.example.application5
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -29,29 +30,32 @@ fun PengelolaHalaman(
     viewModel: MahasiswaViewModel = viewModel(),
     navHost: NavHostController = rememberNavController()
 ){
-    val stateUI by viewModel.uiState.collectAsState()
-    NavHost(modifier = modifier.padding(8.dp),
-        navController = navHost, startDestination = Halaman.Formulir.name) {
-        composable(route = Halaman.Formulir.name) {
-            val konteks = LocalContext.current
-            FormMahasiswaView(
-                listJK =  DataJenisKelamin.listJK.map {
-                    isi -> konteks.resources.getString(isi)
-                },
-                onSubmitClicked = {
-                    viewModel.saveDataMahasiswa(it)
-                    navHost.navigate(Halaman.Detail.name)
-                }
-            )
-        }
-        composable(route = Halaman.Detail.name){
-            DetailMahasiswaView(
-                uiStateMahasiswa = stateUI,
-                onClickButton = {
-                    navHost.popBackStack()
-                }
-            )
+    Scaffold { isipadding ->
+        val stateUI by viewModel.uiState.collectAsState()
+        NavHost(
+            modifier = modifier.padding(isipadding),
+            navController = navHost, startDestination = Halaman.Formulir.name
+        ) {
+            composable(route = Halaman.Formulir.name) {
+                val konteks = LocalContext.current
+                FormMahasiswaView(
+                    listJK = DataJenisKelamin.listJK.map { isi ->
+                        konteks.resources.getString(isi)
+                    },
+                    onSubmitClicked = {
+                        viewModel.saveDataMahasiswa(it)
+                        navHost.navigate(Halaman.Detail.name)
+                    }
+                )
+            }
+            composable(route = Halaman.Detail.name) {
+                DetailMahasiswaView(
+                    uiStateMahasiswa = stateUI,
+                    onClickButton = {
+                        navHost.popBackStack()
+                    }
+                )
+            }
         }
     }
-
 }
