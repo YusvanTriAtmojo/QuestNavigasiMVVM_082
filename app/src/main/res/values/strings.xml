@@ -8,4 +8,7 @@
     <string name="alamat">Alamat</string>
     <string name="gender">Jenis Kelamin</string>
     <string name="detail">Data Siswa</string>
+    <string name="nim">NIM</string>
+    <string name="email">Email</string>
+    <string name="noHP">NoHP</string>
 </resources>
