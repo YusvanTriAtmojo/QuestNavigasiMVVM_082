@@ -3,6 +3,7 @@ package com.example.application5
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -21,8 +22,10 @@ enum class Halaman{
 
 @Composable
 fun PengelolaHalaman(
+    modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    viewModel: MahasiswaViewModel = viewModel()
+    viewModel: MahasiswaViewModel = viewModel(),
+    navHost: NavHostController = rememberNavController()
 ){
     val stateUI by viewModel.uiState.collectAsState()
     NavHost(navController = navController, startDestination = Halaman.Formulir.name) {
